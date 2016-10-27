@@ -1,0 +1,20 @@
+{
+  "name": "magic",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "chai": "^3.5.0"
+  },
+  "devDependencies": {
+    "mocha": "^3.1.2"
+  },
+  "scripts": {
+    "test": "mocha **/*.spec.js --growl --ui bdd",
+    "test:watch": "npm run --silent test -- -w",
+    "setup": "mocha init test-frontend"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
