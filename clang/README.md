@@ -1,1 +1,0 @@
-# ANSI C magic stuff

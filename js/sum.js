@@ -1,9 +1,10 @@
-const sum = a => function(b) {
-    a += b;
-    arguments.callee.toString = function() {
-        return a
-    }
-    return arguments.callee;
+const sum = (a) => {
+    const next = (b) => add(a + b)
+    Object.defineProperty(next, {
+        configurable: false,
+        writable: false,
+        value: a
+    })
+    return next
 }
-
-module.exports = sum;
+module.exports = sum

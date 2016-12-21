@@ -1,3 +1,10 @@
+##### [x] SimpleMap.js
+```js
+var map = new SimpleMap()
+```
+ECMAScript 2015 `Map` simple implemenation blazing fast for ES5
+
+
 ###### [x] sum.js
 ```js
 sum(5)(6) * 2 === (5+6)*2 // => 22
