@@ -63,7 +63,6 @@ function PubSub(topics = {}) {
 
             /* Clear queue */
             clear() {
-                topics[topic] = null
                 topics[topic] = new Set()
                 return topics[topic]
             },

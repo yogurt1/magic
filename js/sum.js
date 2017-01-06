@@ -1,10 +1,13 @@
-const sum = (a) => {
-    const next = (b) => add(a + b)
-    Object.defineProperty(next, {
-        configurable: false,
-        writable: false,
-        value: a
+module.exports = function sum(a = 0) {
+    var nextSum = b => typeof b !== 'undefined'
+        ? sum(a + b) // If no argment given return 'adder' instance
+        : a // Else return result
+    
+    /* Hidden toString method for sexy casting */
+    Object.defineProperty(nextSum, 'toString', {
+        enumerable: false,
+        value: () => +a
     })
-    return next
+    
+    return nextSum
 }
-module.exports = sum

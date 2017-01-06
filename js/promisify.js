@@ -10,8 +10,7 @@ function promisify(fn) {
     });
 }
 
-{
-    // Test
+const test = () => {
     const readFileAsync = promisify(fs.readFile);
     readFileAsync('./adder.js').then(console.log);
 }

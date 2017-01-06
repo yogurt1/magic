@@ -3,6 +3,7 @@
 #include <string.h>
 #include <stdbool.h>
 #include <stdint.h>
+#include <jemalloc/jemalloc.h>
 
 #define AR_EQUALS(a, b) strcmp(a, b) == 0
 #define AR_DESTROY(ar) {\
@@ -156,6 +157,7 @@ int main(void) {
         printf("after destroy\n");
         AR_DESTROY(ar);
         printf("ar == %ld\n", ar);
+
     #endif
 
     return 0;

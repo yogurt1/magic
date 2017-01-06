@@ -1,39 +1,44 @@
-module.exports = function fQuery(selector, _window) {
-    let window = _window || window || global.window
-
-    if (window) {
-        window.$ = fQuery
-    } else {
-        return null
-    }
-
+module.exports = (function(window) { return function fQuery(selector) {
     if (!selector) {
-        return null
+        return
     }
 
-    let el = typeof(selector) === 'string'
-        ? sizzle(selector)
+    const el = typeof(selector) === 'string'
+        ? [document.querySelector(selector)]
         : selector
 
-    let el = _el instanceof Array
-        ? (cb) => _el.forEach(el => cb(el))
-        : (cb) => cb(_el)
+    if (el.length < 1) {
+        return
+    }
+
+    const dom = (() => {
+        if (el instanceof Array) {
+            return done => el.forEach(done)
+        }
+
+        return done => done(el)
+    })()
 
     return {
         animate(animation) {
+            const step = () => {
+                requestAnimationFrame(step)
+            }
+
+            const requestId = requestAnimationFrame(step)
             return function stop() {
-                return false
+                cancelAnimationFrame(requestId)
             }
         },
 
-        css(css) {
-            let keys = Object.keys(css)
+        css(rules) {
+            let keys = Object.keys(rules)
             let keysLength = keys.length
             
             for (let key, i = 0; i < keysLength; i++) {
                 key = keys[i]
-                el(el => el.style[key] = css[key])
+                dom(el => el.style[key] = rules[key])
             }
         }    
     }
-}
+} })(typeof(window) === "window" ? window : global.window).call(this)

@@ -2,7 +2,7 @@
 ```js
 var map = new SimpleMap()
 ```
-ECMAScript 2015 `Map` simple implemenation blazing fast for ES5
+ECMAScript 2015 `Map`
 
 
 ###### [x] sum.js
