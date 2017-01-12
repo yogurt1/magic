@@ -12,11 +12,22 @@ var factorialOf5 = factorial(5)
 ```
 P.S. `factorialFast.js` is fast version of factorial.js
 
+
+##### [x] FlatMap.js
+FlatMap with ECMAScript 2015's Map API
 ***
 ##### [x] SimpleMap.js
 ECMAScript 2015 `Map`
 ```js
 var map = new SimpleMap()
+map.set(someKey, someVal).set(anotherKey, randomStuff)
+map.get(someKey) === someVal
+map.delete(someKey) === someVal
+map.get(someKey) === undefined
+map.clear()
+map.get(anotherKey) === undefined
+map.has(anotherKey) === false
+map.set(someKey, randomStuff).has(someKey) === true
 ```
 
 ***
