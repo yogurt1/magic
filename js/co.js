@@ -1,6 +1,6 @@
 // Coroutine
-const wrap = module.exports = fn => function() {
-    const gen = fn.apply(this, arguments)
+const co = fn => (...args) => {
+    const gen = fn.apply(this, args)
     const resolved = res => next(gen.next(res))
     const rejected = err => next(gen.throw(err))
 
@@ -23,3 +23,5 @@ const wrap = module.exports = fn => function() {
         return Promise.reject(err)
     }
 }
+
+module.exports = co
