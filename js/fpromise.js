@@ -7,8 +7,6 @@ module.exports = function createPromise(cb) {
     const resolve = something => resolved = something
     cb(resolve, resolved)
     
-
-
     const createThen = (nextResolved, nextRejected) => {
         return (onFullfilled, onRejected) => {
 
