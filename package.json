@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/yogurt1/magic#readme",
   "dependencies": {
-    "node-fetch": "^1.6.3"
+    "node-fetch": "^1.6.3",
+    "ramda": "^0.23.0"
   }
 }
